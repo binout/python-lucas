@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feuille de Suivi - Formation Python 📊</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques pour la feuille de suivi */
+        .tracking-sheet {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-tracking {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .student-info {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 2px dashed #667eea;
+        }
+
+        .info-field {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-field label {
+            font-weight: 600;
+            color: #667eea;
+            min-width: 150px;
+        }
+
+        .info-field input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .chapter-block {
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .chapter-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: -25px -25px 20px -25px;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            background: #e2e8f0;
+            transform: translateX(5px);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.05em;
+        }
+
+        .subsection {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .subsection-title {
+            font-weight: 700;
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .notes-section {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fef3c7;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .notes-section label {
+            display: block;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+
+        .notes-section textarea {
+            width: 100%;
+            min-height: 60px;
+            padding: 10px;
+            border: 2px solid #fde68a;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95em;
+            resize: vertical;
+        }
+
+        .progress-bar-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .progress-text {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Styles pour l'impression */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+            }
+
+            .container {
+                box-shadow: none !important;
+                padding: 20px !important;
+                max-width: 100% !important;
+            }
+
+            .header-tracking {
+                background: white !important;
+                color: black !important;
+                border: 3px solid black !important;
+            }
+
+            .chapter-header {
+                background: white !important;
+                color: black !important;
+                border: 2px solid black !important;
+            }
+
+            .chapter-block {
+                border: 2px solid black !important;
+            }
+
+            .print-button,
+            #save-indicator,
+            div[style*="position: fixed"] {
+                display: none !important;
+            }
+
+            button[onclick="resetProgress()"] {
+                display: none !important;
+            }
+
+            .checkbox-item {
+                background: white !important;
+            }
+
+            .notes-section {
+                background: white !important;
+                border: 1px solid black !important;
+            }
+
+            .student-info {
+                background: white !important;
+            }
+
+            a[href^="http"]:after {
+                content: none !important;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container tracking-sheet">
+        <div class="header-tracking">
+            <h1 style="margin: 0; font-size: 2.5em;">📊 Feuille de Suivi</h1>
+            <p style="margin: 10px 0 0 0; font-size: 1.2em;">Formation Python - Suivi de Progression</p>
+        </div>
+
+        <div class="student-info">
+            <h2 style="color: #667eea; margin-top: 0;">👤 Informations de l'élève</h2>
+            <div class="info-field">
+                <label>Nom et Prénom :</label>
+                <input type="text" id="student-name" placeholder="Écris ton nom ici">
+            </div>
+            <div class="info-field">
+                <label>Date de début :</label>
+                <input type="date" id="start-date">
+            </div>
+            <div class="info-field">
+                <label>Date de fin prévue :</label>
+                <input type="date" id="end-date">
+            </div>
+        </div>
+
+        <!-- Chapitre 1 -->
+        <div class="chapter-block">
+            <div class="chapter-header">🌟 Chapitre 1 : Découverte de Python</div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="ch1-theory">
+                <label for="ch1-theory">📖 Lecture de la partie théorique</label>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">✏️ Exercices</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1-ex1">
+                    <label for="ch1-ex1">Exercice 1 : Mon premier message</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1-ex2">
+                    <label for="ch1-ex2">Exercice 2 : Présentation personnelle</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1-ex3">
+                    <label for="ch1-ex3">Exercice 3 : Dessin ASCII</label>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">🎯 Travail Pratique</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch1-tp">
+                    <label for="ch1-tp">TP : Carte de visite virtuelle</label>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <label>📝 Notes et observations :</label>
+                <textarea id="notes-ch1" placeholder="Écris tes notes, difficultés rencontrées, ou idées ici..."></textarea>
+            </div>
+        </div>
+
+        <!-- Chapitre 2 -->
+        <div class="chapter-block">
+            <div class="chapter-header">📦 Chapitre 2 : Variables et Types de Données</div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="ch2-theory">
+                <label for="ch2-theory">📖 Lecture de la partie théorique</label>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">✏️ Exercices</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2-ex1">
+                    <label for="ch2-ex1">Exercice 1 : Créer tes premières variables</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2-ex2">
+                    <label for="ch2-ex2">Exercice 2 : Tous les types de données</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2-ex3">
+                    <label for="ch2-ex3">Exercice 3 : Modifier une variable</label>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">🎯 Travail Pratique</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch2-tp">
+                    <label for="ch2-tp">TP : Fiche de personnage de jeu vidéo</label>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <label>📝 Notes et observations :</label>
+                <textarea id="notes-ch2" placeholder="Écris tes notes, difficultés rencontrées, ou idées ici..."></textarea>
+            </div>
+        </div>
+
+        <!-- Chapitre 3 -->
+        <div class="chapter-block">
+            <div class="chapter-header">🔢 Chapitre 3 : Les Opérations de Base</div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="ch3-theory">
+                <label for="ch3-theory">📖 Lecture de la partie théorique</label>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">✏️ Exercices</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3-ex1">
+                    <label for="ch3-ex1">Exercice 1 : Calculatrice simple</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3-ex2">
+                    <label for="ch3-ex2">Exercice 2 : Convertisseur semaines → jours</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3-ex3">
+                    <label for="ch3-ex3">Exercice 3 : Calcul de moyenne</label>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">🎯 Travail Pratique</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch3-tp">
+                    <label for="ch3-tp">TP : Convertisseur universel</label>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <label>📝 Notes et observations :</label>
+                <textarea id="notes-ch3" placeholder="Écris tes notes, difficultés rencontrées, ou idées ici..."></textarea>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Chapitre 4 -->
+        <div class="chapter-block">
+            <div class="chapter-header">🤔 Chapitre 4 : Les Conditions</div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="ch4-theory">
+                <label for="ch4-theory">📖 Lecture de la partie théorique</label>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">✏️ Exercices</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4-ex1">
+                    <label for="ch4-ex1">Exercice 1 : Vérificateur d'âge</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4-ex2">
+                    <label for="ch4-ex2">Exercice 2 : Calculateur de réduction</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4-ex3">
+                    <label for="ch4-ex3">Exercice 3 : Accès à une attraction</label>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">🎯 Travail Pratique</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch4-tp">
+                    <label for="ch4-tp">TP : Jeu Pierre-Papier-Ciseaux</label>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <label>📝 Notes et observations :</label>
+                <textarea id="notes-ch4" placeholder="Écris tes notes, difficultés rencontrées, ou idées ici..."></textarea>
+            </div>
+        </div>
+
+        <!-- Chapitre 5 -->
+        <div class="chapter-block">
+            <div class="chapter-header">🔄 Chapitre 5 : Les Boucles</div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="ch5-theory">
+                <label for="ch5-theory">📖 Lecture de la partie théorique</label>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">✏️ Exercices</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5-ex1">
+                    <label for="ch5-ex1">Exercice 1 : Table de multiplication</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5-ex2">
+                    <label for="ch5-ex2">Exercice 2 : Somme des nombres</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5-ex3">
+                    <label for="ch5-ex3">Exercice 3 : Compte à rebours avec while</label>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">🎯 Travail Pratique</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch5-tp">
+                    <label for="ch5-tp">TP : Jeu de devinette</label>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <label>📝 Notes et observations :</label>
+                <textarea id="notes-ch5" placeholder="Écris tes notes, difficultés rencontrées, ou idées ici..."></textarea>
+            </div>
+        </div>
+
+        <!-- Chapitre 6 -->
+        <div class="chapter-block">
+            <div class="chapter-header">📝 Chapitre 6 : Les Listes</div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="ch6-theory">
+                <label for="ch6-theory">📖 Lecture de la partie théorique</label>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">✏️ Exercices</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6-ex1">
+                    <label for="ch6-ex1">Exercice 1 : Gestion de liste de courses</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6-ex2">
+                    <label for="ch6-ex2">Exercice 2 : Top 3 des notes</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6-ex3">
+                    <label for="ch6-ex3">Exercice 3 : Recherche dans une liste</label>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <div class="subsection-title">🎯 Travail Pratique</div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="ch6-tp">
+                    <label for="ch6-tp">TP : Gestionnaire de playlist musicale</label>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <label>📝 Notes et observations :</label>
+                <textarea id="notes-ch6" placeholder="Écris tes notes, difficultés rencontrées, ou idées ici..."></textarea>
+            </div>
+        </div>
+
+        <!-- Section finale -->
+        <div style="text-align: center; margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-radius: 15px;">
+            <h2 style="color: #065f46; margin-bottom: 15px;">🎉 Félicitations !</h2>
+            <p style="font-size: 1.1em; color: #065f46;">Quand tous les chapitres sont complétés, tu es devenu un vrai programmeur Python !</p>
+            <div style="margin-top: 20px; padding: 20px; background: white; border-radius: 10px; display: inline-block;">
+                <p style="margin: 0; font-weight: 700; color: #667eea; font-size: 1.2em;">🏆 Certification de Réussite</p>
+                <p style="margin: 10px 0 0 0; color: #64748b;">Date de fin : _______________</p>
+                <p style="margin: 10px 0 0 0; color: #64748b;">Signature : _______________</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="index.html" style="display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">← Retour au cours</a>
+            <button onclick="resetProgress()" style="padding: 15px 30px; background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); transition: all 0.3s ease;">🔄 Réinitialiser ma progression</button>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">🖨️ Imprimer cette feuille</button>
+
+    <div style="position: fixed; bottom: 30px; left: 30px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 12px 20px; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); font-size: 0.9em; z-index: 1000;">
+        💾 Sauvegarde automatique activée
+    </div>
+
+    <script>
+        // Système de sauvegarde automatique dans le navigateur
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. CHARGER les données sauvegardées
+            loadSavedData();
+
+            // 2. SAUVEGARDER automatiquement quand on modifie quelque chose
+            setupAutoSave();
+
+            // 3. Afficher un message de confirmation
+            showSaveIndicator();
+        });
+
+        function loadSavedData() {
+            // Charger les cases à cocher
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                const saved = localStorage.getItem('python-tracking-' + checkbox.id);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+            });
+
+            // Charger les champs texte et dates
+            const inputs = document.querySelectorAll('input[type="text"], input[type="date"]');
+            inputs.forEach(input => {
+                if (input.id) {
+                    const saved = localStorage.getItem('python-tracking-' + input.id);
+                    if (saved) {
+                        input.value = saved;
+                    }
+                }
+            });
+
+            // Charger les textareas (notes)
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach(textarea => {
+                if (textarea.id) {
+                    const saved = localStorage.getItem('python-tracking-' + textarea.id);
+                    if (saved) {
+                        textarea.value = saved;
+                    }
+                }
+            });
+        }
+
+        function setupAutoSave() {
+            // Sauvegarder les cases à cocher
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    localStorage.setItem('python-tracking-' + this.id, this.checked);
+                    showSaveIndicator();
+                });
+            });
+
+            // Sauvegarder les champs texte et dates
+            const inputs = document.querySelectorAll('input[type="text"], input[type="date"]');
+            inputs.forEach(input => {
+                if (input.id) {
+                    input.addEventListener('input', function() {
+                        localStorage.setItem('python-tracking-' + this.id, this.value);
+                        showSaveIndicator();
+                    });
+                }
+            });
+
+            // Sauvegarder les textareas
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach(textarea => {
+                if (textarea.id) {
+                    textarea.addEventListener('input', function() {
+                        localStorage.setItem('python-tracking-' + this.id, this.value);
+                        showSaveIndicator();
+                    });
+                }
+            });
+        }
+
+        function showSaveIndicator() {
+            // Afficher un petit indicateur de sauvegarde
+            let indicator = document.getElementById('save-indicator');
+            if (!indicator) {
+                indicator = document.createElement('div');
+                indicator.id = 'save-indicator';
+                indicator.style.cssText = `
+                    position: fixed;
+                    bottom: 100px;
+                    right: 30px;
+                    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    z-index: 999;
+                    font-size: 0.9em;
+                `;
+                indicator.textContent = '✓ Sauvegardé';
+                document.body.appendChild(indicator);
+            }
+
+            indicator.style.opacity = '1';
+            setTimeout(() => {
+                indicator.style.opacity = '0';
+            }, 2000);
+        }
+
+        function resetProgress() {
+            if (confirm('⚠️ Es-tu sûr de vouloir TOUT réinitialiser ?\n\nToutes tes cases cochées, notes et informations seront supprimées. Cette action est irréversible !')) {
+                // Supprimer toutes les données du localStorage
+                const keys = Object.keys(localStorage);
+                keys.forEach(key => {
+                    if (key.startsWith('python-tracking-')) {
+                        localStorage.removeItem(key);
+                    }
+                });
+
+                // Recharger la page
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>
