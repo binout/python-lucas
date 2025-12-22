@@ -8,6 +8,7 @@
     <script src="script.js"></script>
 </head>
 <body>
+    <div class="container">
     <h1>Chapitre 6: Les Listes</h1>
     <h2>Objectif</h2>
     <p>Maîtriser les listes pour stocker et manipuler des collections de données de manière efficace.</p>
@@ -149,8 +150,8 @@ for i in range(len(fruits)):
 
     <h2>Exercice 1 : Gestion de liste de courses</h2>
     <p><strong>Énoncé :</strong> Crée une liste de courses vide. Ajoute 5 articles avec <code>append()</code>. Affiche la liste complète et le nombre d'articles.</p>
-    <button onclick="showHint('hint1')">Afficher un indice</button>
-    <button onclick="showSolution('solution1')">Afficher la solution</button>
+    <button onclick="showHint('hint1')">💡 Afficher un indice</button>
+    <button onclick="showSolution('solution1')">✨ Afficher la solution</button>
     <div id="hint1" class="hint" style="display:none;">
         <p>Indice: Commence par courses = []. Utilise append() 5 fois. Utilise len() pour compter les articles.</p>
     </div>
@@ -169,8 +170,8 @@ print("Nombre d'articles :", len(courses))</code></pre>
 
     <h2>Exercice 2 : Top 3 des notes</h2>
     <p><strong>Énoncé :</strong> Crée une liste avec 6 notes (par exemple : [15, 12, 18, 14, 16, 11]). Trie la liste par ordre croissant, puis affiche les 3 meilleures notes.</p>
-    <button onclick="showHint('hint2')">Afficher un indice</button>
-    <button onclick="showSolution('solution2')">Afficher la solution</button>
+    <button onclick="showHint('hint2')">💡 Afficher un indice</button>
+    <button onclick="showSolution('solution2')">✨ Afficher la solution</button>
     <div id="hint2" class="hint" style="display:none;">
         <p>Indice: Utilise .sort() pour trier. Les 3 meilleures notes sont les 3 dernières : notes[-3], notes[-2], notes[-1]</p>
     </div>
@@ -190,8 +191,8 @@ print("🥉 3ème :", notes[-3])</code></pre>
 
     <h2>Exercice 3 : Recherche dans une liste</h2>
     <p><strong>Énoncé :</strong> Crée une liste de prénoms. Demande à l'utilisateur un prénom et vérifie s'il est dans la liste. Affiche un message approprié.</p>
-    <button onclick="showHint('hint3')">Afficher un indice</button>
-    <button onclick="showSolution('solution3')">Afficher la solution</button>
+    <button onclick="showHint('hint3')">💡 Afficher un indice</button>
+    <button onclick="showSolution('solution3')">✨ Afficher la solution</button>
     <div id="hint3" class="hint" style="display:none;">
         <p>Indice: Utilise l'opérateur "in" pour vérifier : if prenom in liste:</p>
     </div>
@@ -231,8 +232,8 @@ else:
 
     <p><strong>Défi bonus :</strong> Ajoute une option pour mélanger aléatoirement la playlist (utilise random.shuffle()) !</p>
 
-    <button onclick="showHint('hint_tp6')">Afficher un indice</button>
-    <button onclick="showSolution('solution_tp6')">Afficher la solution</button>
+    <button onclick="showHint('hint_tp6')">💡 Afficher un indice</button>
+    <button onclick="showSolution('solution_tp6')">✨ Afficher la solution</button>
     <div id="hint_tp6" class="hint" style="display:none;">
         <p>Indice: Utilise une boucle while True pour le menu. Chaque option correspond à une condition if/elif. Utilise break pour quitter.</p>
     </div>
@@ -311,5 +312,6 @@ print("\n" + "=" * 50)</code></pre>
     </div>
     
     <a href="index.html">Retour à la page d'accueil</a>
+    </div>
 </body>
 </html>

@@ -8,6 +8,7 @@
     <script src="script.js"></script>
 </head>
 <body>
+    <div class="container">
     <h1>Chapitre 5: Les Boucles</h1>
     <h2>Objectif</h2>
     <p>Maîtriser les boucles pour automatiser les tâches répétitives et créer des programmes plus puissants.</p>
@@ -120,8 +121,8 @@ while compteur < 5:
     <h2>Exercice 1 : Table de multiplication</h2>
     <p><strong>Énoncé :</strong> Demande à l'utilisateur un nombre, puis affiche sa table de multiplication de 1 à 10.</p>
     <p><strong>Exemple :</strong> Pour le nombre 7, affiche : 7 x 1 = 7, 7 x 2 = 14, ..., 7 x 10 = 70</p>
-    <button onclick="showHint('hint1')">Afficher un indice</button>
-    <button onclick="showSolution('solution1')">Afficher la solution</button>
+    <button onclick="showHint('hint1')">💡 Afficher un indice</button>
+    <button onclick="showSolution('solution1')">✨ Afficher la solution</button>
     <div id="hint1" class="hint" style="display:none;">
         <p>Indice: Utilise une boucle for avec range(1, 11) et multiplie le nombre choisi par i à chaque itération.</p>
     </div>
@@ -137,8 +138,8 @@ for i in range(1, 11):
 
     <h2>Exercice 2 : Somme des nombres</h2>
     <p><strong>Énoncé :</strong> Calcule la somme de tous les nombres de 1 à 100 et affiche le résultat.</p>
-    <button onclick="showHint('hint2')">Afficher un indice</button>
-    <button onclick="showSolution('solution2')">Afficher la solution</button>
+    <button onclick="showHint('hint2')">💡 Afficher un indice</button>
+    <button onclick="showSolution('solution2')">✨ Afficher la solution</button>
     <div id="hint2" class="hint" style="display:none;">
         <p>Indice: Crée une variable somme = 0, puis utilise une boucle for pour ajouter chaque nombre à cette somme.</p>
     </div>
@@ -153,8 +154,8 @@ print("La somme de 1 à 100 est :", somme)</code></pre>
 
     <h2>Exercice 3 : Compte à rebours avec while</h2>
     <p><strong>Énoncé :</strong> Crée un compte à rebours qui part de 10 et descend jusqu'à 1, puis affiche "Décollage !". Utilise une boucle <code>while</code>.</p>
-    <button onclick="showHint('hint3')">Afficher un indice</button>
-    <button onclick="showSolution('solution3')">Afficher la solution</button>
+    <button onclick="showHint('hint3')">💡 Afficher un indice</button>
+    <button onclick="showSolution('solution3')">✨ Afficher la solution</button>
     <div id="hint3" class="hint" style="display:none;">
         <p>Indice: Crée une variable compteur = 10, puis utilise while compteur > 0. N'oublie pas de décrémenter le compteur !</p>
     </div>
@@ -186,8 +187,8 @@ nombre_secret = random.randint(1, 50)</code></pre>
 
     <p><strong>Défi bonus :</strong> Compte le nombre de tentatives utilisées et affiche un score à la fin !</p>
 
-    <button onclick="showHint('hint_tp5')">Afficher un indice</button>
-    <button onclick="showSolution('solution_tp5')">Afficher la solution</button>
+    <button onclick="showHint('hint_tp5')">💡 Afficher un indice</button>
+    <button onclick="showSolution('solution_tp5')">✨ Afficher la solution</button>
     <div id="hint_tp5" class="hint" style="display:none;">
         <p>Indice: Utilise une boucle for avec range() pour limiter le nombre de tentatives. Utilise des conditions if/elif/else pour comparer les nombres.</p>
     </div>
@@ -228,5 +229,6 @@ print("=" * 50)</code></pre>
     </div>
     
     <a href="index.html">Retour à la page d'accueil</a>
+    </div>
 </body>
 </html>

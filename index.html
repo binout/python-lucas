@@ -3,18 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formation Python pour Lucas</title>
+    <title>Formation Python pour Lucas 🐍</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques pour la page d'accueil */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .emoji-big {
+            font-size: 4em;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .chapter-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+            border-left-color: #764ba2;
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        .chapter-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .chapter-description {
+            color: #64748b;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .chapter-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .chapter-card a::after {
+            content: '';
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #92400e;
+            display: block;
+        }
+
+        .stat-label {
+            color: #78350f;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Formation Python pour Lucas</h1>
-    <ul>
-        <li><a href="chapitre1.html">Chapitre 1: Découverte de Python</a></li>
-        <li><a href="chapitre2.html">Chapitre 2: Variables et Types de Données</a></li>
-        <li><a href="chapitre3.html">Chapitre 3: Les Opérations de Base</a></li>
-        <li><a href="chapitre4.html">Chapitre 4: Les Conditions</a></li>
-        <li><a href="chapitre5.html">Chapitre 5: Les Boucles</a></li>
-        <li><a href="chapitre6.html">Chapitre 6: Les Listes</a></li>
+    <div class="container">
+    <div class="hero">
+        <span class="emoji-big">🐍✨</span>
+        <h1>Formation Python pour Lucas</h1>
+        <p>Apprends à coder comme un pro !</p>
+        <p style="font-size: 1em; color: #94a3b8;">De débutant à créateur de projets incroyables 🚀</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-box">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Chapitres</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">18</span>
+            <span class="stat-label">Exercices</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Projets</span>
+        </div>
+    </div>
+
+    <h2 style="text-align: center; margin: 50px 0 30px;">🎯 Sommaire du Cours</h2>
+
+    <ul class="chapters-grid">
+        <li class="chapter-card">
+            <a href="chapitre1.html">
+                <span class="chapter-number">Chapitre 1</span>
+                <div class="chapter-title">🌟 Découverte de Python</div>
+                <div class="chapter-description">
+                    Comprends ce qu'est Python et écris tes premiers programmes. Crée ta carte de visite virtuelle !
+                </div>
+            </a>
+        </li>
+        <li class="chapter-card">
+            <a href="chapitre2.html">
+                <span class="chapter-number">Chapitre 2</span>
+                <div class="chapter-title">📦 Variables et Types</div>
+                <div class="chapter-description">
+                    Apprends à stocker des informations. Crée la fiche d'un personnage de jeu vidéo !
+                </div>
+            </a>
+        </li>
+        <li class="chapter-card">
+            <a href="chapitre3.html">
+                <span class="chapter-number">Chapitre 3</span>
+                <div class="chapter-title">🔢 Opérations Mathématiques</div>
+                <div class="chapter-description">
+                    Maîtrise les calculs et les conversions. Construis un convertisseur universel !
+                </div>
+            </a>
+        </li>
+        <li class="chapter-card">
+            <a href="chapitre4.html">
+                <span class="chapter-number">Chapitre 4</span>
+                <div class="chapter-title">🤔 Les Conditions</div>
+                <div class="chapter-description">
+                    Fais prendre des décisions à ton code. Crée le jeu Pierre-Papier-Ciseaux !
+                </div>
+            </a>
+        </li>
+        <li class="chapter-card">
+            <a href="chapitre5.html">
+                <span class="chapter-number">Chapitre 5</span>
+                <div class="chapter-title">🔄 Les Boucles</div>
+                <div class="chapter-description">
+                    Automatise les tâches répétitives. Programme un jeu de devinette passionnant !
+                </div>
+            </a>
+        </li>
+        <li class="chapter-card">
+            <a href="chapitre6.html">
+                <span class="chapter-number">Chapitre 6</span>
+                <div class="chapter-title">📝 Les Listes</div>
+                <div class="chapter-description">
+                    Gère des collections de données. Développe ton gestionnaire de playlist musicale !
+                </div>
+            </a>
+        </li>
     </ul>
+
+    <div style="text-align: center; margin-top: 60px; padding: 30px; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-radius: 15px;">
+        <h2 style="margin-bottom: 15px;">🎮 Prêt à devenir un développeur ?</h2>
+        <p style="font-size: 1.1em; color: #065f46;">Commence par le Chapitre 1 et découvre la magie de la programmation !</p>
+    </div>
+    </div>
 </body>
 </html>
