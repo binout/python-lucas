@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide de démarrage - Python 🚀</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .guide-section {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .step-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .step-box:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin-right: 15px;
+            font-size: 1.1em;
+        }
+
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .screenshot-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            color: #64748b;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Guide de Démarrage Python</h1>
+        <p style="text-align: center; font-size: 1.2em; color: #64748b; margin-bottom: 40px;">
+            Tout ce que tu dois savoir pour installer Python et commencer à coder !
+        </p>
+
+        <!-- Table des matières -->
+        <div class="info-box">
+            <h3 style="margin-top: 0;">📋 Table des matières</h3>
+            <ol style="line-height: 2;">
+                <li><a href="#installation">Installer Python sur ton ordinateur</a></li>
+                <li><a href="#editeur">Choisir un éditeur de code</a></li>
+                <li><a href="#premier-programme">Écrire et exécuter ton premier programme</a></li>
+                <li><a href="#exercices">Comment faire les exercices</a></li>
+                <li><a href="#travaux-pratiques">Comment réaliser les travaux pratiques</a></li>
+                <li><a href="#astuces">Astuces et bonnes pratiques</a></li>
+                <li><a href="#aide">Où trouver de l'aide</a></li>
+            </ol>
+        </div>
+
+        <!-- Section 1: Installation -->
+        <div id="installation" class="guide-section">
+            <h2>💻 1. Installer Python sur Mac avec Homebrew</h2>
+            <p>Homebrew est un gestionnaire de paquets pour Mac qui facilite l'installation de Python et d'autres outils de développement.</p>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <strong>Installer Homebrew (si pas déjà installé)</strong>
+                <p>Ouvre le Terminal (dans Applications > Utilitaires) et tape cette commande :</p>
+                <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+                <p style="margin-top: 10px; color: #64748b;">⏱️ L'installation peut prendre quelques minutes. Entre ton mot de passe Mac si demandé.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <strong>Installer Python avec Homebrew</strong>
+                <p>Une fois Homebrew installé, tape dans le Terminal :</p>
+                <pre><code>brew install python</code></pre>
+                <p style="margin-top: 10px; color: #64748b;">Homebrew va télécharger et installer la dernière version de Python.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <strong>Vérifier l'installation</strong>
+                <p>Tape dans le Terminal :</p>
+                <pre><code>python3 --version</code></pre>
+                <p>Tu devrais voir quelque chose comme : <code>Python 3.12.1</code></p>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Si tu vois le numéro de version, Python est bien installé !</strong>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ️ Note :</strong>
+                <p>Sur Mac, utilise toujours <code>python3</code> (et non <code>python</code>) dans le terminal.</p>
+            </div>
+        </div>
+
+        <!-- Section 2: Éditeur -->
+        <div id="editeur" class="guide-section">
+            <h2>✏️ 2. Installer Visual Studio Code</h2>
+            <p>VS Code est un éditeur de code professionnel et gratuit, parfait pour apprendre Python.</p>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <strong>Télécharger VS Code</strong>
+                <p>Va sur le site officiel :</p>
+                <a href="https://code.visualstudio.com/" target="_blank" class="download-button">
+                    ⬇️ Télécharger VS Code pour Mac
+                </a>
+                <p style="margin-top: 10px; color: #64748b;">Choisis la version pour macOS (Apple Silicon ou Intel selon ton Mac).</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <strong>Installer VS Code</strong>
+                <ol>
+                    <li>Ouvre le fichier .zip téléchargé</li>
+                    <li>Glisse l'application "Visual Studio Code" dans ton dossier Applications</li>
+                    <li>Lance VS Code depuis le dossier Applications</li>
+                </ol>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <strong>Installer l'extension Python</strong>
+                <ol>
+                    <li>Dans VS Code, clique sur l'icône Extensions (carré avec 4 carrés) dans la barre latérale gauche</li>
+                    <li>Cherche "Python" dans la barre de recherche</li>
+                    <li>Clique sur l'extension "Python" de Microsoft (la première normalement)</li>
+                    <li>Clique sur "Install"</li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ VS Code est prêt pour coder en Python !</strong>
+                <p>Tu as maintenant un environnement professionnel avec coloration syntaxique, autocomplétion et débogage.</p>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Conseil :</strong>
+                <p>VS Code peut sembler complexe au début, mais tu vas vite t'y habituer. C'est l'outil utilisé par les vrais développeurs !</p>
+            </div>
+        </div>
+
+        <!-- Section 3: Premier programme -->
+        <div id="premier-programme" class="guide-section">
+            <h2>🎯 3. Écrire et exécuter ton premier programme avec VS Code</h2>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <strong>Créer un dossier pour tes projets Python</strong>
+                <ol>
+                    <li>Crée un dossier "Formation-Python" sur ton Mac (dans Documents par exemple)</li>
+                    <li>Dans VS Code, clique sur "File" > "Open Folder"</li>
+                    <li>Sélectionne ton dossier "Formation-Python"</li>
+                </ol>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <strong>Créer ton premier fichier Python</strong>
+                <ol>
+                    <li>Dans VS Code, clique sur l'icône "Nouveau fichier" (ou File > New File)</li>
+                    <li>Sauvegarde le fichier (Cmd + S) et nomme-le <code>hello.py</code></li>
+                    <li>VS Code va détecter que c'est un fichier Python et activer la coloration syntaxique</li>
+                </ol>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <strong>Écrire ton code</strong>
+                <p>Dans le fichier <code>hello.py</code>, écris :</p>
+                <pre><code>print("Bonjour, le monde !")
+print("Je m'appelle Lucas")
+print("J'ai 12 ans")</code></pre>
+                <p>Sauvegarde avec Cmd + S</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <strong>Exécuter ton programme</strong>
+                <p>Tu as plusieurs options :</p>
+                <ul>
+                    <li><strong>Option 1 (recommandé) :</strong> Clique sur le bouton "▶ Run" en haut à droite</li>
+                    <li><strong>Option 2 :</strong> Clique droit dans l'éditeur > "Run Python File in Terminal"</li>
+                    <li><strong>Option 3 :</strong> Dans le Terminal intégré de VS Code (View > Terminal), tape :
+                        <pre><code>python3 hello.py</code></pre>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Ton programme s'exécute et affiche le résultat dans le Terminal !</strong>
+                <p>Tu devrais voir :</p>
+                <pre><code>Bonjour, le monde !
+Je m'appelle Lucas
+J'ai 12 ans</code></pre>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Astuce VS Code :</strong>
+                <ul>
+                    <li><strong>Cmd + S :</strong> Sauvegarder</li>
+                    <li><strong>Cmd + /:</strong> Commenter/décommenter une ligne</li>
+                    <li><strong>Ctrl + ` :</strong> Ouvrir/fermer le terminal</li>
+                    <li><strong>Autocomplétion :</strong> Commence à taper et VS Code te propose des suggestions !</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 4: Exercices -->
+        <div id="exercices" class="guide-section">
+            <h2>📝 4. Comment faire les exercices</h2>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <strong>Lis l'énoncé attentivement</strong>
+                <p>Comprends bien ce qui est demandé avant de commencer à coder.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <strong>Essaie par toi-même d'abord</strong>
+                <p>N'utilise pas tout de suite les indices ou la solution. Tente de résoudre l'exercice seul, même si tu fais des erreurs !</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <strong>Crée un nouveau fichier Python</strong>
+                <ul>
+                    <li>Nomme-le clairement : <code>chapitre1_exercice1.py</code></li>
+                    <li>Écris ton code dans ce fichier</li>
+                    <li>Sauvegarde régulièrement</li>
+                </ul>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <strong>Teste ton code</strong>
+                <ul>
+                    <li>Exécute ton programme (F5 dans IDLE)</li>
+                    <li>Vérifie que le résultat correspond à ce qui est demandé</li>
+                    <li>Si ça ne fonctionne pas, lis les messages d'erreur</li>
+                </ul>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">5</span>
+                <strong>Utilise les aides si nécessaire</strong>
+                <ul>
+                    <li>Si tu es bloqué plus de 5-10 minutes, clique sur "💡 Afficher un indice"</li>
+                    <li>L'indice te donne une piste sans te donner la réponse complète</li>
+                    <li>Si vraiment tu ne trouves pas, regarde "✨ Afficher la solution"</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Important :</strong>
+                <p>Même si tu regardes la solution, <strong>recopie le code à la main</strong> au lieu de faire un copier-coller. Tu apprendras beaucoup mieux comme ça !</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">6</span>
+                <strong>Expérimente !</strong>
+                <p>Une fois l'exercice réussi, modifie le code pour voir ce qui se passe. C'est comme ça qu'on apprend vraiment !</p>
+            </div>
+        </div>
+
+        <!-- Section 5: Travaux Pratiques -->
+        <div id="travaux-pratiques" class="guide-section">
+            <h2>🎯 5. Comment réaliser les travaux pratiques</h2>
+
+            <p>Les travaux pratiques (TP) sont des petits projets qui combinent plusieurs concepts. Ils sont un peu plus longs que les exercices.</p>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <strong>Lis tout le TP avant de commencer</strong>
+                <p>Comprends l'objectif global et les fonctionnalités demandées.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <strong>Décompose en étapes</strong>
+                <p>Ne code pas tout d'un coup ! Avance étape par étape :</p>
+                <ul>
+                    <li>Commence par la partie la plus simple</li>
+                    <li>Teste après chaque fonctionnalité ajoutée</li>
+                    <li>Ajoute progressivement les autres parties</li>
+                </ul>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <strong>Exemple : TP Carte de visite (Chapitre 1)</strong>
+                <p>Au lieu de tout écrire d'un coup, fais ça progressivement :</p>
+                <ol>
+                    <li>D'abord, affiche juste le titre</li>
+                    <li>Teste → ça marche ? OK, continue</li>
+                    <li>Ajoute ton nom</li>
+                    <li>Teste → ça marche ? OK, continue</li>
+                    <li>Ajoute ton âge, tes passions, etc.</li>
+                    <li>Teste à chaque fois !</li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Astuce :</strong>
+                <p>Prends ton temps ! Les TP sont là pour t'amuser et créer quelque chose de cool. Tu peux même personnaliser au-delà de ce qui est demandé !</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <strong>Tente les défis bonus !</strong>
+                <p>Chaque TP a un défi bonus. C'est optionnel mais très formateur. N'hésite pas à essayer !</p>
+            </div>
+        </div>
+
+        <!-- Section 6: Astuces -->
+        <div id="astuces" class="guide-section">
+            <h2>💡 6. Astuces et bonnes pratiques</h2>
+
+            <h3>Quand tu rencontres une erreur</h3>
+            <div class="info-box">
+                <p><strong>Ne panique pas !</strong> Les erreurs sont normales et font partie de l'apprentissage. Tous les programmeurs en font, même les experts !</p>
+
+                <p><strong>Comment lire un message d'erreur :</strong></p>
+                <ol>
+                    <li>Regarde la <strong>dernière ligne</strong> : elle indique le type d'erreur</li>
+                    <li>Regarde le <strong>numéro de ligne</strong> : elle te dit où est l'erreur</li>
+                    <li>Lis le <strong>message</strong> : il explique souvent le problème</li>
+                </ol>
+
+                <p><strong>Erreurs courantes :</strong></p>
+                <ul>
+                    <li><code>SyntaxError</code> : Tu as oublié quelque chose (parenthèse, guillemet...)</li>
+                    <li><code>NameError</code> : Tu as mal écrit un nom de variable</li>
+                    <li><code>IndentationError</code> : Problème d'indentation (espaces en début de ligne)</li>
+                </ul>
+            </div>
+
+            <h3>Conseils pour bien coder</h3>
+            <div class="step-box">
+                <ul>
+                    <li>✅ <strong>Nomme bien tes fichiers :</strong> <code>chapitre1_exercice2.py</code> plutôt que <code>test.py</code></li>
+                    <li>✅ <strong>Commente ton code :</strong> Utilise <code>#</code> pour expliquer ce que tu fais</li>
+                    <li>✅ <strong>Teste souvent :</strong> N'écris pas 50 lignes d'un coup, teste régulièrement</li>
+                    <li>✅ <strong>Sauvegarde :</strong> Utilise Ctrl+S (ou Cmd+S sur Mac) régulièrement</li>
+                    <li>✅ <strong>Organise tes fichiers :</strong> Crée un dossier "Formation Python" pour tout ranger</li>
+                </ul>
+            </div>
+
+            <h3>Organisation recommandée</h3>
+            <pre><code>Formation-Python/
+├── Chapitre1/
+│   ├── exercice1.py
+│   ├── exercice2.py
+│   └── tp_carte_visite.py
+├── Chapitre2/
+│   ├── exercice1.py
+│   └── ...
+└── ...</code></pre>
+        </div>
+
+        <!-- Section 7: Aide -->
+        <div id="aide" class="guide-section">
+            <h2>🆘 7. Où trouver de l'aide</h2>
+
+            <h3>Ressources en ligne (gratuites)</h3>
+            <div class="step-box">
+                <ul>
+                    <li><strong>Documentation Python :</strong> <a href="https://docs.python.org/fr/" target="_blank">docs.python.org/fr</a></li>
+                    <li><strong>OpenClassrooms :</strong> Cours Python gratuits en français</li>
+                    <li><strong>YouTube :</strong> Cherche "Python débutant français"</li>
+                    <li><strong>Stack Overflow :</strong> Pour poser des questions techniques</li>
+                </ul>
+            </div>
+
+            <h3>Que faire si tu es vraiment bloqué ?</h3>
+            <div class="info-box">
+                <ol>
+                    <li>📖 <strong>Relis la théorie</strong> du chapitre</li>
+                    <li>💡 <strong>Regarde les indices</strong> de l'exercice</li>
+                    <li>🔍 <strong>Google ton erreur</strong> (copie le message d'erreur dans Google)</li>
+                    <li>✨ <strong>Compare avec la solution</strong> et comprends la différence</li>
+                    <li>👥 <strong>Demande à un adulte</strong> ou à quelqu'un qui sait programmer</li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <strong>🎉 Dernier conseil :</strong>
+                <p>L'apprentissage de la programmation prend du temps. Sois patient, persévère, et surtout... <strong>amuse-toi bien !</strong> 🚀</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div style="margin-top: 50px; text-align: center; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;">
+            <h2 style="color: white; margin-bottom: 15px;">🎮 Prêt à commencer ?</h2>
+            <p style="color: white; font-size: 1.1em; margin-bottom: 20px;">Maintenant que tu sais tout, lance-toi dans le Chapitre 1 !</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html" style="display: inline-block; padding: 15px 30px; background: white; color: #667eea; text-decoration: none; border-radius: 10px; font-weight: 600;">← Retour à l'accueil</a>
+                <a href="chapitre1.html" style="display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; border-radius: 10px; font-weight: 600;">Commencer le Chapitre 1 →</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
