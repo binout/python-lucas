@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 6: Les Listes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Chapitre 6: Les Listes</h1>
+    <h2>Objectif</h2>
+    <p>Maîtriser les listes pour stocker et manipuler des collections de données de manière efficace.</p>
+
+    <h2>Partie Théorique</h2>
+
+    <h3>Qu'est-ce qu'une liste ?</h3>
+    <p>Une <strong>liste</strong> est une structure de données qui permet de stocker <strong>plusieurs valeurs</strong> dans une seule variable. C'est comme une boîte divisée en compartiments numérotés.</p>
+
+    <p>Au lieu d'écrire :</p>
+    <pre><code>fruit1 = "pomme"
+fruit2 = "banane"
+fruit3 = "cerise"</code></pre>
+
+    <p>On peut écrire :</p>
+    <pre><code>fruits = ["pomme", "banane", "cerise"]</code></pre>
+
+    <h3>Créer une liste</h3>
+    <p>Une liste se crée avec des <strong>crochets []</strong> et les éléments sont séparés par des <strong>virgules</strong>.</p>
+
+    <pre><code># Liste de strings
+fruits = ["pomme", "banane", "cerise"]
+
+# Liste de nombres
+nombres = [1, 2, 3, 4, 5]
+
+# Liste mixte (différents types)
+mixte = ["Lucas", 12, 1.52, True]
+
+# Liste vide
+ma_liste = []</code></pre>
+
+    <h3>Accéder aux éléments - Les index</h3>
+    <p>Chaque élément d'une liste a un <strong>index</strong> (position). <strong>Attention :</strong> Les index commencent à 0 !</p>
+
+    <table border="1" cellpadding="8" style="border-collapse: collapse; margin: 20px 0;">
+        <tr>
+            <th>Élément</th>
+            <td>"pomme"</td>
+            <td>"banane"</td>
+            <td>"cerise"</td>
+        </tr>
+        <tr>
+            <th>Index</th>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+    </table>
+
+    <pre><code>fruits = ["pomme", "banane", "cerise"]
+
+print(fruits[0])   # pomme (premier élément)
+print(fruits[1])   # banane
+print(fruits[2])   # cerise
+print(fruits[-1])  # cerise (dernier élément)
+print(fruits[-2])  # banane (avant-dernier)</code></pre>
+
+    <h3>Modifier une liste</h3>
+
+    <h4>Changer un élément :</h4>
+    <pre><code>fruits = ["pomme", "banane", "cerise"]
+fruits[1] = "orange"
+print(fruits)  # ["pomme", "orange", "cerise"]</code></pre>
+
+    <h4>Ajouter un élément :</h4>
+    <pre><code># append() : Ajoute à la fin
+fruits.append("kiwi")
+print(fruits)  # ["pomme", "orange", "cerise", "kiwi"]
+
+# insert() : Ajoute à un index précis
+fruits.insert(1, "fraise")
+print(fruits)  # ["pomme", "fraise", "orange", "cerise", "kiwi"]</code></pre>
+
+    <h4>Supprimer un élément :</h4>
+    <pre><code># remove() : Supprime par valeur
+fruits.remove("orange")
+
+# pop() : Supprime par index (et retourne la valeur)
+dernier = fruits.pop()  # Supprime le dernier
+print(dernier)  # kiwi
+
+# del : Supprime par index
+del fruits[0]  # Supprime "pomme"</code></pre>
+
+    <h3>Méthodes utiles des listes</h3>
+    <table border="1" cellpadding="8" style="border-collapse: collapse; margin: 20px 0;">
+        <tr>
+            <th>Méthode</th>
+            <th>Description</th>
+            <th>Exemple</th>
+        </tr>
+        <tr>
+            <td><code>len(liste)</code></td>
+            <td>Longueur de la liste</td>
+            <td><code>len([1,2,3])</code> → 3</td>
+        </tr>
+        <tr>
+            <td><code>liste.append(x)</code></td>
+            <td>Ajoute x à la fin</td>
+            <td><code>fruits.append("kiwi")</code></td>
+        </tr>
+        <tr>
+            <td><code>liste.remove(x)</code></td>
+            <td>Supprime x</td>
+            <td><code>fruits.remove("pomme")</code></td>
+        </tr>
+        <tr>
+            <td><code>liste.pop()</code></td>
+            <td>Supprime le dernier élément</td>
+            <td><code>fruits.pop()</code></td>
+        </tr>
+        <tr>
+            <td><code>liste.sort()</code></td>
+            <td>Trie la liste</td>
+            <td><code>nombres.sort()</code></td>
+        </tr>
+        <tr>
+            <td><code>liste.reverse()</code></td>
+            <td>Inverse l'ordre</td>
+            <td><code>fruits.reverse()</code></td>
+        </tr>
+        <tr>
+            <td><code>x in liste</code></td>
+            <td>Vérifie si x est dans la liste</td>
+            <td><code>"pomme" in fruits</code></td>
+        </tr>
+    </table>
+
+    <h3>Parcourir une liste avec une boucle</h3>
+    <pre><code># Méthode 1 : Parcourir les éléments directement
+fruits = ["pomme", "banane", "cerise"]
+for fruit in fruits:
+    print(fruit)
+
+# Méthode 2 : Parcourir avec les index
+for i in range(len(fruits)):
+    print(f"Index {i} : {fruits[i]}")</code></pre>
+
+    <h2>Exercice 1 : Gestion de liste de courses</h2>
+    <p><strong>Énoncé :</strong> Crée une liste de courses vide. Ajoute 5 articles avec <code>append()</code>. Affiche la liste complète et le nombre d'articles.</p>
+    <button onclick="showHint('hint1')">Afficher un indice</button>
+    <button onclick="showSolution('solution1')">Afficher la solution</button>
+    <div id="hint1" class="hint" style="display:none;">
+        <p>Indice: Commence par courses = []. Utilise append() 5 fois. Utilise len() pour compter les articles.</p>
+    </div>
+    <div id="solution1" class="solution" style="display:none;">
+        <pre><code>courses = []
+
+courses.append("pain")
+courses.append("lait")
+courses.append("œufs")
+courses.append("fromage")
+courses.append("pommes")
+
+print("Liste de courses :", courses)
+print("Nombre d'articles :", len(courses))</code></pre>
+    </div>
+
+    <h2>Exercice 2 : Top 3 des notes</h2>
+    <p><strong>Énoncé :</strong> Crée une liste avec 6 notes (par exemple : [15, 12, 18, 14, 16, 11]). Trie la liste par ordre croissant, puis affiche les 3 meilleures notes.</p>
+    <button onclick="showHint('hint2')">Afficher un indice</button>
+    <button onclick="showSolution('solution2')">Afficher la solution</button>
+    <div id="hint2" class="hint" style="display:none;">
+        <p>Indice: Utilise .sort() pour trier. Les 3 meilleures notes sont les 3 dernières : notes[-3], notes[-2], notes[-1]</p>
+    </div>
+    <div id="solution2" class="solution" style="display:none;">
+        <pre><code>notes = [15, 12, 18, 14, 16, 11]
+
+print("Notes initiales :", notes)
+
+notes.sort()
+print("Notes triées :", notes)
+
+print("Top 3 :")
+print("🥇 1ère :", notes[-1])
+print("🥈 2ème :", notes[-2])
+print("🥉 3ème :", notes[-3])</code></pre>
+    </div>
+
+    <h2>Exercice 3 : Recherche dans une liste</h2>
+    <p><strong>Énoncé :</strong> Crée une liste de prénoms. Demande à l'utilisateur un prénom et vérifie s'il est dans la liste. Affiche un message approprié.</p>
+    <button onclick="showHint('hint3')">Afficher un indice</button>
+    <button onclick="showSolution('solution3')">Afficher la solution</button>
+    <div id="hint3" class="hint" style="display:none;">
+        <p>Indice: Utilise l'opérateur "in" pour vérifier : if prenom in liste:</p>
+    </div>
+    <div id="solution3" class="solution" style="display:none;">
+        <pre><code>prenoms = ["Lucas", "Emma", "Noah", "Léa", "Louis"]
+
+print("Liste des prénoms :", prenoms)
+recherche = input("Quel prénom cherches-tu ? ")
+
+if recherche in prenoms:
+    print(f"✅ {recherche} est dans la liste !")
+    position = prenoms.index(recherche)
+    print(f"Position : {position}")
+else:
+    print(f"❌ {recherche} n'est pas dans la liste")</code></pre>
+    </div>
+
+    <h2>Travail Pratique : Gestionnaire de playlist musicale</h2>
+    <p><strong>Projet :</strong> Crée un programme de gestion de playlist musicale avec un menu interactif !</p>
+
+    <p><strong>Fonctionnalités à implémenter :</strong></p>
+    <ol>
+        <li><strong>Afficher la playlist</strong> : Montre toutes les chansons avec leur numéro</li>
+        <li><strong>Ajouter une chanson</strong> : Demande le titre et l'ajoute à la playlist</li>
+        <li><strong>Supprimer une chanson</strong> : Supprime une chanson par son numéro</li>
+        <li><strong>Nombre de chansons</strong> : Affiche le total de chansons</li>
+        <li><strong>Rechercher une chanson</strong> : Vérifie si une chanson est dans la playlist</li>
+        <li><strong>Quitter</strong> : Termine le programme</li>
+    </ol>
+
+    <p><strong>Le programme doit :</strong></p>
+    <ul>
+        <li>Afficher un menu avec les options</li>
+        <li>Utiliser une boucle pour garder le programme actif</li>
+        <li>Utiliser des conditions pour gérer chaque choix</li>
+    </ul>
+
+    <p><strong>Défi bonus :</strong> Ajoute une option pour mélanger aléatoirement la playlist (utilise random.shuffle()) !</p>
+
+    <button onclick="showHint('hint_tp6')">Afficher un indice</button>
+    <button onclick="showSolution('solution_tp6')">Afficher la solution</button>
+    <div id="hint_tp6" class="hint" style="display:none;">
+        <p>Indice: Utilise une boucle while True pour le menu. Chaque option correspond à une condition if/elif. Utilise break pour quitter.</p>
+    </div>
+    <div id="solution_tp6" class="solution" style="display:none;">
+        <pre><code>import random
+
+playlist = ["Bohemian Rhapsody", "Imagine", "Billie Jean"]
+
+print("=" * 50)
+print("    GESTIONNAIRE DE PLAYLIST")
+print("=" * 50)
+print()
+
+while True:
+    print("\n--- MENU ---")
+    print("1. Afficher la playlist")
+    print("2. Ajouter une chanson")
+    print("3. Supprimer une chanson")
+    print("4. Nombre de chansons")
+    print("5. Rechercher une chanson")
+    print("6. Mélanger la playlist (BONUS)")
+    print("7. Quitter")
+    print()
+
+    choix = input("Choisis une option (1-7) : ")
+
+    if choix == "1":
+        print("\n🎵 PLAYLIST ACTUELLE :")
+        if len(playlist) == 0:
+            print("La playlist est vide")
+        else:
+            for i in range(len(playlist)):
+                print(f"{i+1}. {playlist[i]}")
+
+    elif choix == "2":
+        titre = input("Titre de la chanson à ajouter : ")
+        playlist.append(titre)
+        print(f"✅ '{titre}' ajoutée !")
+
+    elif choix == "3":
+        if len(playlist) == 0:
+            print("La playlist est vide")
+        else:
+            for i in range(len(playlist)):
+                print(f"{i+1}. {playlist[i]}")
+            num = int(input("Numéro de la chanson à supprimer : "))
+            if 1 <= num <= len(playlist):
+                supprime = playlist.pop(num - 1)
+                print(f"🗑️ '{supprime}' supprimée !")
+            else:
+                print("❌ Numéro invalide")
+
+    elif choix == "4":
+        print(f"📊 Nombre de chansons : {len(playlist)}")
+
+    elif choix == "5":
+        recherche = input("Titre à rechercher : ")
+        if recherche in playlist:
+            position = playlist.index(recherche) + 1
+            print(f"✅ Trouvée à la position {position}")
+        else:
+            print("❌ Chanson non trouvée")
+
+    elif choix == "6":
+        random.shuffle(playlist)
+        print("🔀 Playlist mélangée !")
+
+    elif choix == "7":
+        print("👋 Au revoir !")
+        break
+
+    else:
+        print("❌ Option invalide")
+
+print("\n" + "=" * 50)</code></pre>
+    </div>
+    
+    <a href="index.html">Retour à la page d'accueil</a>
+</body>
+</html>

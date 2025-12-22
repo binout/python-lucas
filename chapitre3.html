@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 3: Les Opérations de Base</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Chapitre 3: Les Opérations de Base</h1>
+    <h2>Objectif</h2>
+    <p>Maîtriser les opérations mathématiques, découvrir comment récupérer des données de l'utilisateur et convertir entre différents types.</p>
+
+    <h2>Partie Théorique</h2>
+
+    <h3>Les opérateurs arithmétiques</h3>
+    <p>Python peut faire toutes les opérations mathématiques que tu connais. Voici les <strong>opérateurs arithmétiques</strong> :</p>
+
+    <table border="1" cellpadding="8" style="border-collapse: collapse; margin: 20px 0;">
+        <tr>
+            <th>Opérateur</th>
+            <th>Nom</th>
+            <th>Exemple</th>
+            <th>Résultat</th>
+        </tr>
+        <tr>
+            <td><code>+</code></td>
+            <td>Addition</td>
+            <td><code>5 + 3</code></td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td><code>-</code></td>
+            <td>Soustraction</td>
+            <td><code>5 - 3</code></td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td><code>*</code></td>
+            <td>Multiplication</td>
+            <td><code>5 * 3</code></td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td><code>/</code></td>
+            <td>Division</td>
+            <td><code>10 / 3</code></td>
+            <td>3.333...</td>
+        </tr>
+        <tr>
+            <td><code>//</code></td>
+            <td>Division entière</td>
+            <td><code>10 // 3</code></td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><code>%</code></td>
+            <td>Modulo (reste)</td>
+            <td><code>10 % 3</code></td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><code>**</code></td>
+            <td>Puissance</td>
+            <td><code>2 ** 3</code></td>
+            <td>8</td>
+        </tr>
+    </table>
+
+    <h3>Exemples détaillés</h3>
+    <pre><code>a = 10
+b = 3
+
+print(a + b)   # 13 - Addition
+print(a - b)   # 7 - Soustraction
+print(a * b)   # 30 - Multiplication
+print(a / b)   # 3.333... - Division normale (donne toujours un float)
+print(a // b)  # 3 - Division entière (partie entière du résultat)
+print(a % b)   # 1 - Reste de la division (10 divisé par 3 = 3, reste 1)
+print(a ** b)  # 1000 - 10 à la puissance 3</code></pre>
+
+    <h3>Ordre de priorité des opérations</h3>
+    <p>Python respecte les règles mathématiques. L'ordre de priorité est :</p>
+    <ol>
+        <li><strong>Parenthèses</strong> <code>()</code></li>
+        <li><strong>Puissance</strong> <code>**</code></li>
+        <li><strong>Multiplication/Division</strong> <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></li>
+        <li><strong>Addition/Soustraction</strong> <code>+</code>, <code>-</code></li>
+    </ol>
+
+    <pre><code>resultat = 2 + 3 * 4
+print(resultat)  # 14 (et pas 20 !)
+# Car 3 * 4 = 12, puis 2 + 12 = 14
+
+resultat2 = (2 + 3) * 4
+print(resultat2)  # 20
+# Les parenthèses forcent à calculer 2 + 3 d'abord</code></pre>
+
+    <h3>La fonction input() - Récupérer des données</h3>
+    <p>La fonction <code>input()</code> permet de demander à l'utilisateur de taper quelque chose :</p>
+    <pre><code>nom = input("Quel est ton nom ? ")
+print("Bonjour", nom)</code></pre>
+
+    <p><strong>Attention :</strong> <code>input()</code> retourne toujours un <strong>string</strong> (texte) !</p>
+
+    <h3>Conversion de types</h3>
+    <p>Pour faire des calculs avec des nombres saisis par l'utilisateur, il faut convertir le texte en nombre :</p>
+
+    <ul>
+        <li><code>int()</code> : convertit en nombre entier</li>
+        <li><code>float()</code> : convertit en nombre décimal</li>
+        <li><code>str()</code> : convertit en texte</li>
+    </ul>
+
+    <pre><code>age_texte = input("Quel âge as-tu ? ")  # Retourne un string
+age_nombre = int(age_texte)  # Convertit en integer
+annee_prochaine = age_nombre + 1
+print("L'année prochaine, tu auras", annee_prochaine, "ans")</code></pre>
+
+    <p>On peut aussi tout faire en une ligne :</p>
+    <pre><code>age = int(input("Quel âge as-tu ? "))
+print("L'année prochaine, tu auras", age + 1, "ans")</code></pre>
+
+    <h2>Exercice 1 : Calculatrice simple</h2>
+    <p><strong>Énoncé :</strong> Crée deux variables <code>a = 15</code> et <code>b = 4</code>. Affiche le résultat de toutes les opérations arithmétiques entre ces deux nombres (addition, soustraction, multiplication, division, division entière, modulo et puissance).</p>
+    <button onclick="showHint('hint1')">Afficher un indice</button>
+    <button onclick="showSolution('solution1')">Afficher la solution</button>
+    <div id="hint1" class="hint" style="display:none;">
+        <p>Indice: Crée les deux variables, puis utilise 7 print() avec les 7 opérateurs différents.</p>
+    </div>
+    <div id="solution1" class="solution" style="display:none;">
+        <pre><code>a = 15
+b = 4
+
+print("Addition :", a + b)
+print("Soustraction :", a - b)
+print("Multiplication :", a * b)
+print("Division :", a / b)
+print("Division entière :", a // b)
+print("Modulo :", a % b)
+print("Puissance :", a ** b)</code></pre>
+    </div>
+
+    <h2>Exercice 2 : Convertisseur semaines → jours</h2>
+    <p><strong>Énoncé :</strong> Demande à l'utilisateur un nombre de semaines et affiche combien cela fait de jours.</p>
+    <p><strong>Rappel :</strong> 1 semaine = 7 jours</p>
+    <button onclick="showHint('hint2')">Afficher un indice</button>
+    <button onclick="showSolution('solution2')">Afficher la solution</button>
+    <div id="hint2" class="hint" style="display:none;">
+        <p>Indice: Utilise input() pour récupérer le nombre de semaines, convertis-le en int(), puis multiplie par 7.</p>
+    </div>
+    <div id="solution2" class="solution" style="display:none;">
+        <pre><code>semaines = int(input("Combien de semaines veux-tu convertir ? "))
+jours = semaines * 7
+print(semaines, "semaines =", jours, "jours")</code></pre>
+    </div>
+
+    <h2>Exercice 3 : Calcul de moyenne</h2>
+    <p><strong>Énoncé :</strong> Demande à l'utilisateur 3 notes (peuvent être décimales). Calcule et affiche la moyenne de ces 3 notes.</p>
+    <button onclick="showHint('hint3')">Afficher un indice</button>
+    <button onclick="showSolution('solution3')">Afficher la solution</button>
+    <div id="hint3" class="hint" style="display:none;">
+        <p>Indice: Utilise float() pour convertir les notes car elles peuvent être décimales. Moyenne = (note1 + note2 + note3) / 3</p>
+    </div>
+    <div id="solution3" class="solution" style="display:none;">
+        <pre><code>note1 = float(input("Note 1 : "))
+note2 = float(input("Note 2 : "))
+note3 = float(input("Note 3 : "))
+
+moyenne = (note1 + note2 + note3) / 3
+print("Ta moyenne est :", moyenne)</code></pre>
+    </div>
+
+    <h2>Travail Pratique : Convertisseur universel</h2>
+    <p><strong>Projet :</strong> Crée un programme de conversion qui propose plusieurs convertisseurs :</p>
+
+    <ol>
+        <li><strong>Convertisseur d'âge :</strong>
+            <ul>
+                <li>Demande l'âge en années</li>
+                <li>Affiche l'âge en mois, en semaines et en jours</li>
+                <li>(1 an = 12 mois = 52 semaines = 365 jours)</li>
+            </ul>
+        </li>
+        <li><strong>Convertisseur de température :</strong>
+            <ul>
+                <li>Demande une température en Celsius</li>
+                <li>Affiche la température en Fahrenheit</li>
+                <li>Formule : F = (C × 9/5) + 32</li>
+            </ul>
+        </li>
+        <li><strong>Convertisseur de monnaie :</strong>
+            <ul>
+                <li>Demande un montant en euros</li>
+                <li>Affiche la conversion en dollars (1€ = 1.10$) et en livres (1€ = 0.85£)</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p><strong>Défi bonus :</strong> Ajoute un 4ème convertisseur de ton choix (distance, vitesse, poids, etc.) !</p>
+
+    <button onclick="showHint('hint_tp3')">Afficher un indice</button>
+    <button onclick="showSolution('solution_tp3')">Afficher la solution</button>
+    <div id="hint_tp3" class="hint" style="display:none;">
+        <p>Indice: Organise ton programme en sections avec des print() pour les titres. Utilise int() ou float() selon le type de donnée nécessaire.</p>
+    </div>
+    <div id="solution_tp3" class="solution" style="display:none;">
+        <pre><code>print("=" * 50)
+print("      CONVERTISSEUR UNIVERSEL")
+print("=" * 50)
+print()
+
+# 1. Convertisseur d'âge
+print("--- CONVERTISSEUR D'ÂGE ---")
+annees = int(input("Quel est ton âge en années ? "))
+mois = annees * 12
+semaines = annees * 52
+jours = annees * 365
+
+print("Tu as environ :")
+print("-", mois, "mois")
+print("-", semaines, "semaines")
+print("-", jours, "jours")
+print()
+
+# 2. Convertisseur de température
+print("--- CONVERTISSEUR DE TEMPÉRATURE ---")
+celsius = float(input("Température en Celsius : "))
+fahrenheit = (celsius * 9/5) + 32
+print(celsius, "°C =", fahrenheit, "°F")
+print()
+
+# 3. Convertisseur de monnaie
+print("--- CONVERTISSEUR DE MONNAIE ---")
+euros = float(input("Montant en euros : "))
+dollars = euros * 1.10
+livres = euros * 0.85
+print(euros, "€ =", dollars, "$")
+print(euros, "€ =", livres, "£")
+print()
+
+# BONUS: Convertisseur de distance
+print("--- BONUS: CONVERTISSEUR DE DISTANCE ---")
+kilometres = float(input("Distance en kilomètres : "))
+metres = kilometres * 1000
+miles = kilometres * 0.621
+print(kilometres, "km =", metres, "m")
+print(kilometres, "km =", miles, "miles")
+print()
+
+print("=" * 50)</code></pre>
+    </div>
+    
+    <a href="index.html">Retour à la page d'accueil</a>
+</body>
+</html>

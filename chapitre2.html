@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 2: Variables et Types de Données</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Chapitre 2: Variables et Types de Données</h1>
+    <h2>Objectif</h2>
+    <p>Maîtriser les variables, comprendre les différents types de données et apprendre à les manipuler en Python.</p>
+
+    <h2>Partie Théorique</h2>
+
+    <h3>Qu'est-ce qu'une variable ?</h3>
+    <p>Une <strong>variable</strong> est comme une boîte étiquetée dans laquelle tu peux ranger une information. Cette boîte a :</p>
+    <ul>
+        <li><strong>Un nom</strong> (l'étiquette sur la boîte) : par exemple <code>age</code></li>
+        <li><strong>Une valeur</strong> (ce qu'il y a dans la boîte) : par exemple <code>12</code></li>
+        <li><strong>Un type</strong> (le type d'objet dans la boîte) : par exemple un nombre</li>
+    </ul>
+
+    <p>En Python, on crée une variable avec le signe <code>=</code> (qu'on appelle "opérateur d'affectation") :</p>
+    <pre><code>nom_variable = valeur</code></pre>
+
+    <h3>Les types de données en Python</h3>
+
+    <h4>1. String (str) - Chaînes de caractères</h4>
+    <p>Un <strong>string</strong> (ou "chaîne de caractères") est du texte. On le met toujours entre guillemets.</p>
+    <pre><code>prenom = "Lucas"
+ville = 'Paris'  # Les guillemets simples fonctionnent aussi
+message = "J'aime Python !"</code></pre>
+
+    <h4>2. Integer (int) - Nombres entiers</h4>
+    <p>Un <strong>integer</strong> est un nombre entier (sans virgule). Pas besoin de guillemets !</p>
+    <pre><code>age = 12
+nombre_eleves = 25
+score = -5  # Les nombres négatifs sont aussi des entiers</code></pre>
+
+    <h4>3. Float - Nombres décimaux</h4>
+    <p>Un <strong>float</strong> est un nombre avec une virgule (en Python, on utilise un point).</p>
+    <pre><code>taille = 1.52  # en mètres
+temperature = 23.5  # en degrés
+prix = 9.99</code></pre>
+
+    <h4>4. Boolean (bool) - Vrai ou Faux</h4>
+    <p>Un <strong>boolean</strong> ne peut avoir que deux valeurs : <code>True</code> (Vrai) ou <code>False</code> (Faux).</p>
+    <pre><code>est_majeur = False
+aime_python = True</code></pre>
+
+    <h3>Règles pour nommer les variables</h3>
+    <ul>
+        <li>✅ Utilise des lettres, des chiffres et le underscore (_) : <code>mon_age</code>, <code>score_joueur1</code></li>
+        <li>✅ Commence toujours par une lettre ou underscore : <code>_variable</code>, <code>nom</code></li>
+        <li>❌ Ne commence jamais par un chiffre : <code>1nom</code> est interdit</li>
+        <li>❌ Pas d'espaces : utilise underscore à la place : <code>mon_nom</code> et non <code>mon nom</code></li>
+        <li>❌ Pas de caractères spéciaux (@, !, %, etc.)</li>
+        <li>💡 Utilise des noms descriptifs : <code>age</code> est mieux que <code>a</code></li>
+    </ul>
+
+    <h3>Afficher le type d'une variable</h3>
+    <p>Pour connaître le type d'une variable, utilise la fonction <code>type()</code> :</p>
+    <pre><code>age = 12
+print(type(age))  # Affiche: &lt;class 'int'&gt;
+
+nom = "Lucas"
+print(type(nom))  # Affiche: &lt;class 'str'&gt;</code></pre>
+
+    <h2>Exemples pratiques</h2>
+    <pre><code>prenom = "Lucas"
+age = 12
+taille = 1.52
+est_en_classe = True
+
+print("Prénom :", prenom)
+print("Âge :", age)
+print("Taille :", taille, "m")
+print("En classe ?", est_en_classe)</code></pre>
+
+    <h2>Exercice 1 : Créer tes premières variables</h2>
+    <p><strong>Énoncé :</strong> Crée 3 variables pour stocker :</p>
+    <ul>
+        <li>Ton film préféré (string)</li>
+        <li>Ton nombre de bonbons (integer)</li>
+        <li>Ton poids en kg (float)</li>
+    </ul>
+    <p>Ensuite, affiche chaque variable avec un message descriptif.</p>
+    <button onclick="showHint('hint1')">Afficher un indice</button>
+    <button onclick="showSolution('solution1')">Afficher la solution</button>
+    <div id="hint1" class="hint" style="display:none;">
+        <p>Indice: Utilise des noms de variables clairs. N'oublie pas les guillemets pour le film. Affiche avec print().</p>
+    </div>
+    <div id="solution1" class="solution" style="display:none;">
+        <pre><code>film_prefere = "Spider-Man"
+nombre_bonbons = 15
+poids = 45.5
+
+print("Mon film préféré est :", film_prefere)
+print("J'ai", nombre_bonbons, "bonbons")
+print("Je pèse", poids, "kg")</code></pre>
+    </div>
+
+    <h2>Exercice 2 : Tous les types de données</h2>
+    <p><strong>Énoncé :</strong> Crée 4 variables de types différents :</p>
+    <ul>
+        <li>Un string : ton animal préféré</li>
+        <li>Un integer : ton année de naissance</li>
+        <li>Un float : la note de ton dernier contrôle (sur 20)</li>
+        <li>Un boolean : si tu aimes les mathématiques (True ou False)</li>
+    </ul>
+    <p>Affiche le type de chaque variable avec <code>type()</code>.</p>
+    <button onclick="showHint('hint2')">Afficher un indice</button>
+    <button onclick="showSolution('solution2')">Afficher la solution</button>
+    <div id="hint2" class="hint" style="display:none;">
+        <p>Indice: Utilise <code>print(type(variable))</code> pour afficher le type. N'oublie pas : True et False commencent par une majuscule !</p>
+    </div>
+    <div id="solution2" class="solution" style="display:none;">
+        <pre><code>animal_prefere = "chat"
+annee_naissance = 2013
+note = 15.5
+aime_maths = True
+
+print("Animal :", animal_prefere, "- Type :", type(animal_prefere))
+print("Année :", annee_naissance, "- Type :", type(annee_naissance))
+print("Note :", note, "- Type :", type(note))
+print("Aime maths :", aime_maths, "- Type :", type(aime_maths))</code></pre>
+    </div>
+
+    <h2>Exercice 3 : Modifier une variable</h2>
+    <p><strong>Énoncé :</strong> Les variables peuvent changer de valeur ! Crée une variable <code>score</code> avec la valeur 0. Affiche-la. Ensuite, change sa valeur à 100 et affiche-la à nouveau.</p>
+    <button onclick="showHint('hint3')">Afficher un indice</button>
+    <button onclick="showSolution('solution3')">Afficher la solution</button>
+    <div id="hint3" class="hint" style="display:none;">
+        <p>Indice: Tu peux réaffecter une nouvelle valeur à une variable en utilisant à nouveau le signe =</p>
+    </div>
+    <div id="solution3" class="solution" style="display:none;">
+        <pre><code>score = 0
+print("Score initial :", score)
+
+score = 100
+print("Nouveau score :", score)</code></pre>
+    </div>
+
+    <h2>Travail Pratique : Fiche de personnage de jeu vidéo</h2>
+    <p><strong>Projet :</strong> Crée la fiche d'un personnage de jeu vidéo avec les variables suivantes :</p>
+    <ul>
+        <li><code>nom_personnage</code> : le nom de ton personnage (string)</li>
+        <li><code>classe</code> : guerrier, mage, archer, etc. (string)</li>
+        <li><code>niveau</code> : le niveau du personnage (integer)</li>
+        <li><code>points_vie</code> : les HP du personnage (integer)</li>
+        <li><code>force_attaque</code> : la puissance d'attaque (float)</li>
+        <li><code>est_vivant</code> : True si vivant, False sinon (boolean)</li>
+    </ul>
+    <p>Affiche toutes ces informations de manière claire et organisée, comme une vraie fiche de personnage !</p>
+    <p><strong>Défi bonus :</strong> Ajoute 3 variables supplémentaires de ton choix (armure, agilité, mana, etc.)</p>
+    <button onclick="showHint('hint_tp2')">Afficher un indice</button>
+    <button onclick="showSolution('solution_tp2')">Afficher la solution</button>
+    <div id="hint_tp2" class="hint" style="display:none;">
+        <p>Indice: Organise ton affichage avec des titres et des séparateurs. Utilise plusieurs print() pour structurer la fiche.</p>
+    </div>
+    <div id="solution_tp2" class="solution" style="display:none;">
+        <pre><code># Création du personnage
+nom_personnage = "Aragorn"
+classe = "Guerrier"
+niveau = 15
+points_vie = 250
+force_attaque = 87.5
+est_vivant = True
+
+# Bonus
+armure = 120
+agilite = 45.3
+or = 1500
+
+# Affichage de la fiche
+print("=" * 40)
+print("     FICHE DE PERSONNAGE")
+print("=" * 40)
+print()
+print("Nom :", nom_personnage)
+print("Classe :", classe)
+print("Niveau :", niveau)
+print()
+print("--- Statistiques ---")
+print("Points de vie :", points_vie, "HP")
+print("Force d'attaque :", force_attaque)
+print("Armure :", armure)
+print("Agilité :", agilite)
+print()
+print("Statut :", "Vivant" if est_vivant else "Mort")
+print("Or :", or, "pièces")
+print()
+print("=" * 40)</code></pre>
+    </div>
+    
+    <a href="index.html">Retour à la page d'accueil</a>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 5: Les Boucles</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Chapitre 5: Les Boucles</h1>
+    <h2>Objectif</h2>
+    <p>Maîtriser les boucles pour automatiser les tâches répétitives et créer des programmes plus puissants.</p>
+
+    <h2>Partie Théorique</h2>
+
+    <h3>Qu'est-ce qu'une boucle ?</h3>
+    <p>Une <strong>boucle</strong> permet de répéter une action plusieurs fois sans avoir à réécrire le même code. C'est comme dire : "Répète cette action 10 fois" ou "Continue jusqu'à ce que..."</p>
+
+    <p>Sans boucle, pour afficher 5 fois "Bonjour" :</p>
+    <pre><code>print("Bonjour")
+print("Bonjour")
+print("Bonjour")
+print("Bonjour")
+print("Bonjour")  # Répétitif et long !</code></pre>
+
+    <p>Avec une boucle :</p>
+    <pre><code>for i in range(5):
+    print("Bonjour")  # Une seule ligne !</code></pre>
+
+    <h3>La boucle FOR</h3>
+    <p>La boucle <code>for</code> répète une action un <strong>nombre défini</strong> de fois.</p>
+
+    <h4>Syntaxe de base :</h4>
+    <pre><code>for variable in range(nombre):
+    # Code à répéter</code></pre>
+
+    <h4>La fonction range()</h4>
+    <p>La fonction <code>range()</code> génère une séquence de nombres. Elle a 3 formes :</p>
+
+    <table border="1" cellpadding="8" style="border-collapse: collapse; margin: 20px 0;">
+        <tr>
+            <th>Syntaxe</th>
+            <th>Description</th>
+            <th>Exemple</th>
+            <th>Résultat</th>
+        </tr>
+        <tr>
+            <td><code>range(fin)</code></td>
+            <td>De 0 à fin-1</td>
+            <td><code>range(5)</code></td>
+            <td>0, 1, 2, 3, 4</td>
+        </tr>
+        <tr>
+            <td><code>range(début, fin)</code></td>
+            <td>De début à fin-1</td>
+            <td><code>range(2, 6)</code></td>
+            <td>2, 3, 4, 5</td>
+        </tr>
+        <tr>
+            <td><code>range(début, fin, pas)</code></td>
+            <td>De début à fin-1, avec un pas</td>
+            <td><code>range(0, 10, 2)</code></td>
+            <td>0, 2, 4, 6, 8</td>
+        </tr>
+    </table>
+
+    <h4>Exemples de boucles for :</h4>
+    <pre><code># Afficher les nombres de 0 à 4
+for i in range(5):
+    print(i)
+
+# Afficher les nombres de 1 à 10
+for i in range(1, 11):
+    print(i)
+
+# Compter de 2 en 2
+for i in range(0, 11, 2):
+    print(i)  # 0, 2, 4, 6, 8, 10
+
+# Compte à rebours
+for i in range(10, 0, -1):
+    print(i)  # 10, 9, 8, 7, 6, 5, 4, 3, 2, 1</code></pre>
+
+    <h3>La boucle WHILE</h3>
+    <p>La boucle <code>while</code> répète une action <strong>tant qu'une condition est vraie</strong>.</p>
+
+    <h4>Syntaxe :</h4>
+    <pre><code>while condition:
+    # Code à répéter</code></pre>
+
+    <h4>Exemple :</h4>
+    <pre><code>compteur = 0
+while compteur < 5:
+    print("Compteur :", compteur)
+    compteur = compteur + 1  # IMPORTANT : modifier la variable !
+
+# Affiche : 0, 1, 2, 3, 4</code></pre>
+
+    <p><strong>⚠️ Attention :</strong> N'oublie pas de modifier la variable de condition, sinon tu crées une <strong>boucle infinie</strong> !</p>
+
+    <h3>Break et Continue</h3>
+
+    <h4>break - Sortir de la boucle</h4>
+    <p><code>break</code> permet de <strong>sortir immédiatement</strong> de la boucle.</p>
+    <pre><code>for i in range(10):
+    if i == 5:
+        break  # On sort quand i vaut 5
+    print(i)
+# Affiche : 0, 1, 2, 3, 4</code></pre>
+
+    <h4>continue - Passer à l'itération suivante</h4>
+    <p><code>continue</code> permet de <strong>sauter le reste du code</strong> et passer directement à l'itération suivante.</p>
+    <pre><code>for i in range(10):
+    if i % 2 == 0:
+        continue  # On saute les nombres pairs
+    print(i)
+# Affiche : 1, 3, 5, 7, 9</code></pre>
+
+    <h2>Exercice 1 : Table de multiplication</h2>
+    <p><strong>Énoncé :</strong> Demande à l'utilisateur un nombre, puis affiche sa table de multiplication de 1 à 10.</p>
+    <p><strong>Exemple :</strong> Pour le nombre 7, affiche : 7 x 1 = 7, 7 x 2 = 14, ..., 7 x 10 = 70</p>
+    <button onclick="showHint('hint1')">Afficher un indice</button>
+    <button onclick="showSolution('solution1')">Afficher la solution</button>
+    <div id="hint1" class="hint" style="display:none;">
+        <p>Indice: Utilise une boucle for avec range(1, 11) et multiplie le nombre choisi par i à chaque itération.</p>
+    </div>
+    <div id="solution1" class="solution" style="display:none;">
+        <pre><code>nombre = int(input("Choisis un nombre : "))
+
+print("Table de multiplication de", nombre)
+print("-" * 20)
+for i in range(1, 11):
+    resultat = nombre * i
+    print(f"{nombre} x {i} = {resultat}")</code></pre>
+    </div>
+
+    <h2>Exercice 2 : Somme des nombres</h2>
+    <p><strong>Énoncé :</strong> Calcule la somme de tous les nombres de 1 à 100 et affiche le résultat.</p>
+    <button onclick="showHint('hint2')">Afficher un indice</button>
+    <button onclick="showSolution('solution2')">Afficher la solution</button>
+    <div id="hint2" class="hint" style="display:none;">
+        <p>Indice: Crée une variable somme = 0, puis utilise une boucle for pour ajouter chaque nombre à cette somme.</p>
+    </div>
+    <div id="solution2" class="solution" style="display:none;">
+        <pre><code>somme = 0
+
+for i in range(1, 101):
+    somme = somme + i
+
+print("La somme de 1 à 100 est :", somme)</code></pre>
+    </div>
+
+    <h2>Exercice 3 : Compte à rebours avec while</h2>
+    <p><strong>Énoncé :</strong> Crée un compte à rebours qui part de 10 et descend jusqu'à 1, puis affiche "Décollage !". Utilise une boucle <code>while</code>.</p>
+    <button onclick="showHint('hint3')">Afficher un indice</button>
+    <button onclick="showSolution('solution3')">Afficher la solution</button>
+    <div id="hint3" class="hint" style="display:none;">
+        <p>Indice: Crée une variable compteur = 10, puis utilise while compteur > 0. N'oublie pas de décrémenter le compteur !</p>
+    </div>
+    <div id="solution3" class="solution" style="display:none;">
+        <pre><code>compteur = 10
+
+while compteur > 0:
+    print(compteur)
+    compteur = compteur - 1
+
+print("Décollage ! 🚀")</code></pre>
+    </div>
+
+    <h2>Travail Pratique : Jeu de devinette</h2>
+    <p><strong>Projet :</strong> Crée un jeu où l'ordinateur choisit un nombre aléatoire entre 1 et 50, et le joueur doit le deviner !</p>
+
+    <p><strong>Fonctionnalités :</strong></p>
+    <ul>
+        <li>L'ordinateur choisit un nombre aléatoire (utilise le code fourni)</li>
+        <li>Le joueur a un nombre limité de tentatives (par exemple 7)</li>
+        <li>À chaque essai, indique si le nombre cherché est plus grand ou plus petit</li>
+        <li>Si le joueur trouve, affiche un message de victoire</li>
+        <li>Si le joueur épuise ses tentatives, affiche un message de défaite et révèle le nombre</li>
+    </ul>
+
+    <p><strong>Code pour le nombre aléatoire :</strong></p>
+    <pre><code>import random
+nombre_secret = random.randint(1, 50)</code></pre>
+
+    <p><strong>Défi bonus :</strong> Compte le nombre de tentatives utilisées et affiche un score à la fin !</p>
+
+    <button onclick="showHint('hint_tp5')">Afficher un indice</button>
+    <button onclick="showSolution('solution_tp5')">Afficher la solution</button>
+    <div id="hint_tp5" class="hint" style="display:none;">
+        <p>Indice: Utilise une boucle for avec range() pour limiter le nombre de tentatives. Utilise des conditions if/elif/else pour comparer les nombres.</p>
+    </div>
+    <div id="solution_tp5" class="solution" style="display:none;">
+        <pre><code>import random
+
+print("=" * 50)
+print("    JEU DE DEVINETTE")
+print("=" * 50)
+print()
+print("Je pense à un nombre entre 1 et 50.")
+print("Tu as 7 tentatives pour le trouver !")
+print()
+
+nombre_secret = random.randint(1, 50)
+tentatives_max = 7
+gagne = False
+
+for tentative in range(1, tentatives_max + 1):
+    print(f"Tentative {tentative}/{tentatives_max}")
+    proposition = int(input("Quel est ton nombre ? "))
+
+    if proposition == nombre_secret:
+        print(f"🎉 Bravo ! Tu as trouvé en {tentative} tentatives !")
+        gagne = True
+        break
+    elif proposition < nombre_secret:
+        print("📈 C'est plus grand !")
+    else:
+        print("📉 C'est plus petit !")
+    print()
+
+if not gagne:
+    print(f"😢 Dommage ! Le nombre était {nombre_secret}")
+
+print()
+print("=" * 50)</code></pre>
+    </div>
+    
+    <a href="index.html">Retour à la page d'accueil</a>
+</body>
+</html>

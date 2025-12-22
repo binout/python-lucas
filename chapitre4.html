@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 4: Les Conditions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Chapitre 4: Les Conditions</h1>
+    <h2>Objectif</h2>
+    <p>Maîtriser les structures conditionnelles pour que ton programme puisse prendre des décisions intelligentes.</p>
+
+    <h2>Partie Théorique</h2>
+
+    <h3>Qu'est-ce qu'une condition ?</h3>
+    <p>Une <strong>condition</strong> permet à ton programme de prendre des décisions. C'est comme dans la vie réelle :</p>
+    <ul>
+        <li>SI il pleut, ALORS je prends mon parapluie</li>
+        <li>SI j'ai faim, ALORS je mange, SINON je continue à jouer</li>
+    </ul>
+    <p>En Python, on utilise les mots-clés <code>if</code> (si), <code>elif</code> (sinon si), et <code>else</code> (sinon).</p>
+
+    <h3>Structure if / else</h3>
+    <pre><code>if condition:
+    # Code exécuté si la condition est vraie
+else:
+    # Code exécuté si la condition est fausse</code></pre>
+
+    <p><strong>Exemple :</strong></p>
+    <pre><code>age = 12
+if age >= 12:
+    print("Tu peux aller au collège")
+else:
+    print("Tu es encore à l'école primaire")</code></pre>
+
+    <h3>Important : L'indentation !</h3>
+    <p>En Python, l'<strong>indentation</strong> (les espaces au début de la ligne) est OBLIGATOIRE. Elle montre quel code appartient à la condition.</p>
+    <pre><code># ✅ CORRECT
+if age > 10:
+    print("Plus de 10 ans")  # 4 espaces d'indentation
+    print("Tu grandis !")
+
+# ❌ ERREUR
+if age > 10:
+print("Plus de 10 ans")  # Manque l'indentation !</code></pre>
+
+    <h3>Les opérateurs de comparaison</h3>
+    <table border="1" cellpadding="8" style="border-collapse: collapse; margin: 20px 0;">
+        <tr>
+            <th>Opérateur</th>
+            <th>Signification</th>
+            <th>Exemple</th>
+            <th>Résultat</th>
+        </tr>
+        <tr>
+            <td><code>==</code></td>
+            <td>Égal à</td>
+            <td><code>5 == 5</code></td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td><code>!=</code></td>
+            <td>Différent de</td>
+            <td><code>5 != 3</code></td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td><code>&lt;</code></td>
+            <td>Plus petit que</td>
+            <td><code>3 &lt; 5</code></td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td><code>&gt;</code></td>
+            <td>Plus grand que</td>
+            <td><code>5 &gt; 3</code></td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td><code>&lt;=</code></td>
+            <td>Plus petit ou égal</td>
+            <td><code>3 &lt;= 3</code></td>
+            <td>True</td>
+        </tr>
+        <tr>
+            <td><code>&gt;=</code></td>
+            <td>Plus grand ou égal</td>
+            <td><code>5 &gt;= 5</code></td>
+            <td>True</td>
+        </tr>
+    </table>
+
+    <p><strong>Attention :</strong> Pour comparer, on utilise <code>==</code> (deux signes égal), pas <code>=</code> (qui sert à affecter une valeur) !</p>
+
+    <h3>Structure if / elif / else</h3>
+    <p>Quand tu as plusieurs conditions à vérifier, utilise <code>elif</code> (sinon si) :</p>
+    <pre><code>note = 15
+
+if note >= 16:
+    print("Excellent !")
+elif note >= 14:
+    print("Très bien !")
+elif note >= 12:
+    print("Bien")
+elif note >= 10:
+    print("Assez bien")
+else:
+    print("Tu peux mieux faire")</code></pre>
+
+    <h3>Les opérateurs logiques</h3>
+    <p>Pour combiner plusieurs conditions :</p>
+
+    <ul>
+        <li><code>and</code> (et) : Les DEUX conditions doivent être vraies</li>
+        <li><code>or</code> (ou) : AU MOINS UNE condition doit être vraie</li>
+        <li><code>not</code> (non) : Inverse la condition</li>
+    </ul>
+
+    <pre><code># AND - Les deux conditions doivent être vraies
+age = 12
+a_carte = True
+if age >= 12 and a_carte:
+    print("Tu peux entrer au cinéma")
+
+# OR - Au moins une condition doit être vraie
+jour = "samedi"
+if jour == "samedi" or jour == "dimanche":
+    print("C'est le week-end !")
+
+# NOT - Inverse le résultat
+est_fatigue = False
+if not est_fatigue:
+    print("On peut jouer !")</code></pre>
+
+    <h2>Exercice 1 : Vérificateur d'âge</h2>
+    <p><strong>Énoncé :</strong> Demande l'âge de l'utilisateur et affiche un message selon son âge :</p>
+    <ul>
+        <li>Moins de 12 ans : "Tu es à l'école primaire"</li>
+        <li>12-14 ans : "Tu es au collège"</li>
+        <li>15-17 ans : "Tu es au lycée"</li>
+        <li>18 ans ou plus : "Tu es adulte"</li>
+    </ul>
+    <button onclick="showHint('hint1')">Afficher un indice</button>
+    <button onclick="showSolution('solution1')">Afficher la solution</button>
+    <div id="hint1" class="hint" style="display:none;">
+        <p>Indice: Utilise if, elif et else pour tester les différentes tranches d'âge.</p>
+    </div>
+    <div id="solution1" class="solution" style="display:none;">
+        <pre><code>age = int(input("Quel âge as-tu ? "))
+
+if age < 12:
+    print("Tu es à l'école primaire")
+elif age <= 14:
+    print("Tu es au collège")
+elif age <= 17:
+    print("Tu es au lycée")
+else:
+    print("Tu es adulte")</code></pre>
+    </div>
+
+    <h2>Exercice 2 : Calculateur de réduction</h2>
+    <p><strong>Énoncé :</strong> Un magasin applique des réductions selon l'âge :</p>
+    <ul>
+        <li>Moins de 12 ans : 50% de réduction</li>
+        <li>12-17 ans : 30% de réduction</li>
+        <li>18-64 ans : pas de réduction</li>
+        <li>65 ans et plus : 40% de réduction</li>
+    </ul>
+    <p>Demande l'âge et le prix de base, puis affiche le prix final après réduction.</p>
+    <button onclick="showHint('hint2')">Afficher un indice</button>
+    <button onclick="showSolution('solution2')">Afficher la solution</button>
+    <div id="hint2" class="hint" style="display:none;">
+        <p>Indice: Utilise des conditions pour déterminer le pourcentage de réduction, puis calcule : prix_final = prix * (1 - reduction)</p>
+    </div>
+    <div id="solution2" class="solution" style="display:none;">
+        <pre><code>age = int(input("Quel âge as-tu ? "))
+prix = float(input("Quel est le prix de base ? "))
+
+if age < 12:
+    reduction = 0.50
+    print("Réduction enfant : 50%")
+elif age <= 17:
+    reduction = 0.30
+    print("Réduction jeune : 30%")
+elif age <= 64:
+    reduction = 0
+    print("Pas de réduction")
+else:
+    reduction = 0.40
+    print("Réduction senior : 40%")
+
+prix_final = prix * (1 - reduction)
+print("Prix final :", prix_final, "€")</code></pre>
+    </div>
+
+    <h2>Exercice 3 : Accès à une attraction</h2>
+    <p><strong>Énoncé :</strong> Pour monter dans une attraction de parc d'attractions, il faut :</p>
+    <ul>
+        <li>Avoir AU MOINS 12 ans ET mesurer AU MOINS 1,40m</li>
+        <li>OU être accompagné d'un adulte</li>
+    </ul>
+    <p>Demande l'âge, la taille et si la personne est accompagnée. Affiche si elle peut monter ou non.</p>
+    <button onclick="showHint('hint3')">Afficher un indice</button>
+    <button onclick="showSolution('solution3')">Afficher la solution</button>
+    <div id="hint3" class="hint" style="display:none;">
+        <p>Indice: Utilise les opérateurs and et or. Structure : if (condition1 and condition2) or condition3:</p>
+    </div>
+    <div id="solution3" class="solution" style="display:none;">
+        <pre><code>age = int(input("Quel âge as-tu ? "))
+taille = float(input("Quelle est ta taille en m ? "))
+accompagne = input("Es-tu accompagné d'un adulte ? (oui/non) ")
+
+if (age >= 12 and taille >= 1.40) or accompagne == "oui":
+    print("✅ Tu peux monter dans l'attraction !")
+else:
+    print("❌ Désolé, tu ne peux pas monter")</code></pre>
+    </div>
+
+    <h2>Travail Pratique : Jeu du "Pierre, Papier, Ciseaux"</h2>
+    <p><strong>Projet :</strong> Crée un jeu de Pierre-Papier-Ciseaux contre l'ordinateur !</p>
+
+    <p><strong>Règles :</strong></p>
+    <ul>
+        <li>Pierre bat Ciseaux</li>
+        <li>Ciseaux bat Papier</li>
+        <li>Papier bat Pierre</li>
+    </ul>
+
+    <p><strong>Instructions :</strong></p>
+    <ol>
+        <li>Demande au joueur de choisir : pierre, papier ou ciseaux</li>
+        <li>L'ordinateur choisit aléatoirement (utilise le code fourni)</li>
+        <li>Compare les choix et affiche qui a gagné</li>
+        <li>Gère tous les cas possibles (égalité, victoire, défaite)</li>
+    </ol>
+
+    <p><strong>Code pour le choix aléatoire de l'ordinateur :</strong></p>
+    <pre><code>import random
+choix_ordi = random.choice(["pierre", "papier", "ciseaux"])</code></pre>
+
+    <p><strong>Défi bonus :</strong> Affiche le score sur plusieurs manches !</p>
+
+    <button onclick="showHint('hint_tp4')">Afficher un indice</button>
+    <button onclick="showSolution('solution_tp4')">Afficher la solution</button>
+    <div id="hint_tp4" class="hint" style="display:none;">
+        <p>Indice: Utilise des conditions imbriquées. D'abord vérifie l'égalité, puis teste toutes les combinaisons gagnantes pour le joueur.</p>
+    </div>
+    <div id="solution_tp4" class="solution" style="display:none;">
+        <pre><code>import random
+
+print("=" * 40)
+print("  JEU PIERRE - PAPIER - CISEAUX")
+print("=" * 40)
+print()
+
+# Choix du joueur
+choix_joueur = input("Choisis pierre, papier ou ciseaux : ").lower()
+
+# Choix de l'ordinateur
+choix_ordi = random.choice(["pierre", "papier", "ciseaux"])
+print("L'ordinateur a choisi :", choix_ordi)
+print()
+
+# Déterminer le gagnant
+if choix_joueur == choix_ordi:
+    print("🤝 Égalité !")
+elif (choix_joueur == "pierre" and choix_ordi == "ciseaux") or \
+     (choix_joueur == "ciseaux" and choix_ordi == "papier") or \
+     (choix_joueur == "papier" and choix_ordi == "pierre"):
+    print("🎉 Tu as gagné !")
+else:
+    print("😢 L'ordinateur a gagné !")
+
+print()
+print("=" * 40)</code></pre>
+    </div>
+    
+    <a href="index.html">Retour à la page d'accueil</a>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 1: Découverte de Python</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Chapitre 1: Découverte de Python</h1>
+    <h2>Objectif</h2>
+    <p>Comprendre ce qu'est Python, découvrir comment communiquer avec l'ordinateur et créer tes premiers programmes.</p>
+
+    <h2>Partie Théorique</h2>
+
+    <h3>Qu'est-ce que Python ?</h3>
+    <p>Python est un <strong>langage de programmation</strong> créé en 1991 par Guido van Rossum. Un langage de programmation, c'est une façon de communiquer avec un ordinateur en lui donnant des instructions précises.</p>
+
+    <p>Imagine que tu veux qu'un robot fasse le ménage dans ta chambre. Tu dois lui expliquer exactement quoi faire : "ramasse les vêtements", "range-les dans l'armoire", etc. C'est la même chose avec Python : tu écris des instructions que l'ordinateur va suivre à la lettre.</p>
+
+    <h3>Pourquoi Python est-il populaire ?</h3>
+    <ul>
+        <li><strong>Facile à lire :</strong> Le code Python ressemble presque à de l'anglais, ce qui le rend plus simple à comprendre</li>
+        <li><strong>Puissant :</strong> On peut créer des jeux vidéo, des applications, des sites web, et même programmer des robots !</li>
+        <li><strong>Très utilisé :</strong> Des entreprises comme YouTube, Instagram, Spotify et Netflix utilisent Python</li>
+    </ul>
+
+    <h3>Qu'est-ce qu'un programme ?</h3>
+    <p>Un <strong>programme</strong>, c'est une suite d'instructions que l'ordinateur exécute dans l'ordre. Chaque ligne de code est une instruction.</p>
+
+    <h3>La fonction print()</h3>
+    <p>La fonction <code>print()</code> est l'une des fonctions les plus importantes en Python. Elle permet d'<strong>afficher du texte</strong> à l'écran.</p>
+
+    <p><strong>Syntaxe :</strong></p>
+    <pre><code>print("Ton message ici")</code></pre>
+
+    <p><strong>Points importants :</strong></p>
+    <ul>
+        <li>Le texte doit être entre <strong>guillemets</strong> (simples ' ou doubles ")</li>
+        <li>Les <strong>parenthèses</strong> sont obligatoires</li>
+        <li>Python fait la différence entre majuscules et minuscules : <code>print()</code> fonctionne, mais <code>Print()</code> donnera une erreur !</li>
+    </ul>
+
+    <h2>Premier Programme</h2>
+    <p>Voici le programme traditionnel que tous les programmeurs écrivent en premier :</p>
+    <pre><code>print("Bonjour, le monde!")</code></pre>
+    <p>Quand tu exécutes ce programme, l'ordinateur affiche : <code>Bonjour, le monde!</code></p>
+
+    <h3>Afficher plusieurs lignes</h3>
+    <p>Tu peux utiliser plusieurs <code>print()</code> pour afficher plusieurs lignes :</p>
+    <pre><code>print("Ligne 1")
+print("Ligne 2")
+print("Ligne 3")</code></pre>
+
+    <h2>Exercice 1 : Mon premier message</h2>
+    <p><strong>Énoncé :</strong> Écris un programme qui affiche "Bienvenue dans le monde de Python !" à l'écran.</p>
+    <button onclick="showHint('hint1')">Afficher un indice</button>
+    <button onclick="showSolution('solution1')">Afficher la solution</button>
+    <div id="hint1" class="hint" style="display:none;">
+        <p>Indice: Utilise la fonction <code>print()</code> et place ton message entre guillemets.</p>
+    </div>
+    <div id="solution1" class="solution" style="display:none;">
+        <pre><code>print("Bienvenue dans le monde de Python !")</code></pre>
+    </div>
+
+    <h2>Exercice 2 : Présentation personnelle</h2>
+    <p><strong>Énoncé :</strong> Écris un programme qui affiche 4 lignes pour te présenter :</p>
+    <ul>
+        <li>Ton prénom</li>
+        <li>Ton âge</li>
+        <li>Ta ville</li>
+        <li>Ton sport ou hobby préféré</li>
+    </ul>
+    <button onclick="showHint('hint2')">Afficher un indice</button>
+    <button onclick="showSolution('solution2')">Afficher la solution</button>
+    <div id="hint2" class="hint" style="display:none;">
+        <p>Indice: Utilise 4 fonctions <code>print()</code>, une pour chaque information.</p>
+    </div>
+    <div id="solution2" class="solution" style="display:none;">
+        <pre><code>print("Je m'appelle Lucas")
+print("J'ai 12 ans")
+print("J'habite à Paris")
+print("J'adore le football")</code></pre>
+    </div>
+
+    <h2>Exercice 3 : Dessin ASCII</h2>
+    <p><strong>Énoncé :</strong> Crée un petit dessin avec du texte en utilisant plusieurs <code>print()</code>. Par exemple, dessine un bonhomme sourire ou une maison.</p>
+    <button onclick="showHint('hint3')">Afficher un indice</button>
+    <button onclick="showSolution('solution3')">Afficher la solution</button>
+    <div id="hint3" class="hint" style="display:none;">
+        <p>Indice: Utilise des caractères comme *, -, |, o pour créer ton dessin. Chaque ligne du dessin = un print().</p>
+    </div>
+    <div id="solution3" class="solution" style="display:none;">
+        <pre><code># Bonhomme sourire
+print("  *****  ")
+print(" *     * ")
+print("*  o o  *")
+print("*   ^   *")
+print("* \\_____/ *")
+print(" *     * ")
+print("  *****  ")</code></pre>
+    </div>
+
+    <h2>Travail Pratique : Ta carte de visite virtuelle</h2>
+    <p><strong>Projet :</strong> Crée une carte de visite virtuelle qui affiche :</p>
+    <ul>
+        <li>Un titre décoratif (avec des caractères comme = ou *)</li>
+        <li>Ton nom complet</li>
+        <li>Ton âge</li>
+        <li>Tes 3 passions ou hobbies</li>
+        <li>Ta citation ou phrase préférée</li>
+        <li>Une ligne de séparation à la fin</li>
+    </ul>
+    <p><strong>Défi bonus :</strong> Rends ta carte visuellement attractive en ajoutant des décorations !</p>
+    <button onclick="showHint('hint_tp1')">Afficher un indice</button>
+    <button onclick="showSolution('solution_tp1')">Afficher la solution</button>
+    <div id="hint_tp1" class="hint" style="display:none;">
+        <p>Indice: Utilise au moins 8-10 lignes de <code>print()</code> pour structurer ta carte. Ajoute des lignes avec des ====== pour séparer les sections.</p>
+    </div>
+    <div id="solution_tp1" class="solution" style="display:none;">
+        <pre><code>print("================================")
+print("    CARTE DE VISITE")
+print("================================")
+print("")
+print("Nom : Lucas Martin")
+print("Âge : 12 ans")
+print("")
+print("Mes passions :")
+print("  - Programmation Python")
+print("  - Jeux vidéo")
+print("  - Football")
+print("")
+print("Citation préférée :")
+print("\"Le code est de la poésie\"")
+print("")
+print("================================")</code></pre>
+    </div>
+    
+    <a href="index.html">Retour à la page d'accueil</a>
+</body>
+</html>
